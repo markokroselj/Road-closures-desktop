@@ -76,7 +76,7 @@ def get_closures():
         status = soup.table.tbody.find_all('tr')[i].find_all('td')[3].text
         i += 1
         #check if date is biger or equal as current date and check if closure is scheduled
-        if((closure_date1 <= current_date1) or ("closure scheduled" not in status.lower())):
+        if((closure_date1 < current_date1) or ("closure scheduled" not in status.lower())):
             continue
         
         #add closure object to array
