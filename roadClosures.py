@@ -29,7 +29,7 @@ def get_utc_dt(x):
         x = x.replace('p.m.', 'pm') 
 
     local = pytz.timezone("America/Mexico_City")
-    naive = datetime.strptime(x, '%B %d, %Y %H:%M %p')
+    naive = datetime.strptime(x, '%B %d, %Y %I:%M %p')
     local_dt = local.localize(naive, is_dst=None)
     return local_dt.astimezone(pytz.utc)  
 
