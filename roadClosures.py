@@ -29,7 +29,7 @@ def get_utc_dt(x):
         x = x.replace('p.m.', 'pm') 
 
     local = pytz.timezone("America/Mexico_City")
-    naive = datetime.strptime(x, '%B %d, %Y %I:%M %p')
+    naive = datetime.strptime(x, '%A, %B %d, %Y %I:%M %p')
     local_dt = local.localize(naive, is_dst=None)
     return local_dt.astimezone(pytz.utc)  
 
@@ -41,7 +41,7 @@ def get_closures():
         #get closure date
         closure_date = soup.table.tbody.find_all('tr')[i].find_all('td')[1].get_text(strip=True)
         current_date1 = time.strptime(get_current_date(), '%B %d, %Y')
-        closure_date1 = time.strptime(closure_date, '%B %d, %Y')
+        closure_date1 = time.strptime(closure_date, '%A, %B %d, %Y')
 
         #get closure time
         clsoure_time = soup.table.tbody.find_all('tr')[i].find_all('td')[2].get_text(strip=True)
