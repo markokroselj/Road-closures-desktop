@@ -7,7 +7,7 @@ import tkinter as tk
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-request = requests.get("https://www.cameroncounty.us/spacex/")
+request = requests.get("https://www.cameroncountytx.gov/spacex/")
 soup = BeautifulSoup(request.text, 'html.parser')
 
 
